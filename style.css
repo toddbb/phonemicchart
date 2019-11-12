@@ -1,0 +1,188 @@
+p,h1,h2,h3,h4,h5,h6,a,li {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 350px;
+}
+
+.main-wrapper h2 {
+  text-align: center;
+  margin: 20px;
+}
+
+.chart-wrapper {  
+  justify-content: center;
+  margin: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 24px repeat(8, 1fr);
+  grid-template-rows: 30px repeat(6, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.vowels {
+  grid-row: 1 / 5;
+  background: #aaa;
+}
+.consonants {
+  grid-row: 5 / 8;
+  background: #fafa8e;
+  border-top: 1px solid #333;
+}
+.vowels, .consonants {  
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+  border-left: 1px solid #333;
+}
+.monophthongs {
+  grid-column: 2 / 6;
+  background: #ddd;
+  border-top: 1px solid #333;
+}
+.diphthongs {
+  grid-column: 6 / 8;
+  background: #aaa;
+  border-top: 1px solid #333;
+}
+
+.grid-container > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #333;
+  border-bottom: 1px solid #333;
+  box-sizing: border-box;
+}
+.phoneme {  
+  transition: transform 0.15s linear;
+  cursor: pointer;  
+}
+.phoneme:hover {
+  filter: brightness(120%);
+}
+.grid-container .blank {
+  border-right: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+div:nth-child(38), div:nth-child(20) {
+  border-top: 1px solid #333;
+}
+
+.tbl-head {
+  font-size: .7em;  
+  font-weight: 600;
+}
+.phoneme h1 {
+  margin: 3px 5px 5px 5px;
+  font-size: 1em;
+}
+.phoneme p {
+  margin: 0px 5px 5px 3px;
+  font-size: 0.5em;
+}
+.grid-container * {  
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+.mono {
+  background: #ddd;
+}
+.dip {
+  background: #aaa;
+}
+.cons {
+  background: #fafa8e;
+}
+
+/******       JQUERY CLASSES **************/
+.scalePhoneme {
+  transform: scale(1.1);
+  filter: brightness(120%);
+  border: 0 !important;
+  box-shadow: 0 0 10px -2px #333;
+  z-index: 1000;
+}
+
+
+
+/*******     MEDIA QUERIES   **********/
+@media screen and (mid-width: 350px) {
+  
+}
+
+@media screen and (min-width: 548px) {
+  .phoneme > p {
+    font-size: 0.6em;
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  .grid-container {    
+    grid-template-columns: 30px repeat(8, 1fr);
+  }
+  .chart-wrapper {
+    display: flex;
+  }
+  .phoneme > p {
+    font-size: 0.9em;
+  }
+  .phoneme > h1 {
+    font-size: 1.3em;
+  }
+  .tbl-head {
+    font-size: 0.8em;
+  }
+}
+
+
+
+@media screen and (min-width: 1200px) {
+  .phoneme > p {
+    font-size: 1em;
+  }
+  .phoneme > h1 {
+    font-size: 1.3em;
+  }
+  .tbl-head {
+    font-size: 0.8em;
+  }
+}
+
+
+
+
+/******    FLUID TYPOGRAPHY        ***********/
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
